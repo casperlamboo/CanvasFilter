@@ -1,0 +1,34 @@
+{
+  "name": "canvas-filter",
+  "version": "0.0.1",
+  "description": "Canvas filters using imageData",
+  "main": "src/Filter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casperlamboo/CanvasFilter.git"
+  },
+  "keywords": [
+    "filter",
+    "canvas",
+    "html5",
+    "grayscale",
+    "floodfill",
+    "highpass"
+  ],
+  "author": "Casper @ Doodle3D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/casperlamboo/CanvasFilter/issues"
+  },
+  "homepage": "https://github.com/casperlamboo/CanvasFilter#readme",
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
