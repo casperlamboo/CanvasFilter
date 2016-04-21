@@ -49,7 +49,7 @@
     ]
   },
   "jspm": {
-    "main": "index.js",
+    "main": "Filter.js",
     "directories": {
       "lib": "src"
     },
