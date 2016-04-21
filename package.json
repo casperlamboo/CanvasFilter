@@ -2,9 +2,11 @@
   "name": "canvas-filter",
   "version": "0.0.1",
   "description": "Canvas filters using imageData",
-  "main": "src/Filter.js",
+  "main": "lib/Filter.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,33 @@
     "url": "https://github.com/casperlamboo/CanvasFilter/issues"
   },
   "homepage": "https://github.com/casperlamboo/CanvasFilter#readme",
+  "format": "esm",
+  "directories": {
+    "lib": "src"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-preset-es2015": "^6.5.0",
+    "jspm": "^0.16.29"
+  },
+  "files": [
+    "lib"
+  ],
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
   "jspm": {
+    "main": "index.js",
+    "directories": {
+      "lib": "src"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
