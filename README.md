@@ -26,7 +26,7 @@ npm install canvas-filter
 
 include in your project
 ```javascript
-var Shape = require('clipper-js');
+var Shape = require('canvas-filter');
 ```
 ## API
 
