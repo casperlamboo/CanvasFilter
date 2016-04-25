@@ -1,3 +1,4 @@
+/* */
 export default class Filter {
   constructor(canvas = document.createElement('canvas')) {
     this.setCanvas(canvas);
@@ -137,6 +138,9 @@ export default class Filter {
         data[i] = backgroundColor.r;
         data[i + 1] = backgroundColor.g;
         data[i + 2] = backgroundColor.b;
+        if (backgroundColor.a !== undefined) {
+          data[i + 3] = backgroundColor.a;
+        }
       }
     }
     if (edgeColor !== undefined) {
@@ -147,6 +151,9 @@ export default class Filter {
         data[i] = edgeColor.r;
         data[i + 1] = edgeColor.g;
         data[i + 2] = edgeColor.b;
+        if (edgeColor.a !== undefined) {
+          data[i + 3] = edgeColor.a;
+        }
       }
     }
     if (fillColor !== undefined) {
@@ -157,6 +164,9 @@ export default class Filter {
         data[i] = fillColor.r;
         data[i + 1] = fillColor.g;
         data[i + 2] = fillColor.b;
+        if (fillColor.a !== undefined) {
+          data[i + 3] = fillColor.a;
+        }
       }
     }
 
