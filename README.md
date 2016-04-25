@@ -14,7 +14,7 @@ jspm install github:casperlamboo/CanvasFilter
 
 include in your project
 ```javascript
-import Shape from 'Doodle3D/ClipperJS';
+import Shape from 'casperlamboo/CanvasFilter';
 ```
 
 **Using NPM (CommonJS module)**
