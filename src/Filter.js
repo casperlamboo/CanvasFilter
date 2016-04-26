@@ -87,7 +87,7 @@ export default class Filter {
 
     return this;
   }
-  floodfill(x, y, tolerance, { fillColor, edgeColor, backgroundColor } = {}) {
+  floodfill(x, y, tolerance, { fillColor, edgeColor, backgroundColor } = {}, timeout = 0) {
     tolerance *= 3;
 
     const compairIndex = this.getIndex(x, y);
@@ -101,7 +101,12 @@ export default class Filter {
     const edge = [];
     const fill = [];
 
+    const startTime = Date.now();
     while (stack.length > 0) {
+      if (timeout && Date.now() - startTime > timeout) {
+        return this;
+      }
+
       const index = stack.pop();
 
       const pixel = this.getPixelIndex(index);
