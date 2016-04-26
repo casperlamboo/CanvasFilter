@@ -1,6 +1,8 @@
 /* */
 export default class Filter {
   constructor(canvas = document.createElement('canvas')) {
+    this.filterStack = [];
+
     this.setCanvas(canvas);
   }
   setCanvas(canvas) {
@@ -17,6 +19,8 @@ export default class Filter {
 
     this._updateImageData();
 
+    this.filterStack.splice(0, this.filterStack.length);
+
     return this;
   }
   setSize(width, height) {
@@ -24,6 +28,8 @@ export default class Filter {
     this.canvas.height = height;
 
     this._updateImageData();
+
+    this.filterStack.splice(0, this.filterStack.length);
 
     return this;
   }
@@ -40,6 +46,8 @@ export default class Filter {
       data[i + 2] = color;
     }
 
+    this.filterStack.push('grayscale');
+
     return this;
   }
   highPass(threshold) {
@@ -54,6 +62,8 @@ export default class Filter {
         data[i + 2] = 255;
       }
     }
+
+    this.filterStack.push('high-pass');
 
     return this;
   }
@@ -70,6 +80,8 @@ export default class Filter {
       }
     }
 
+    this.filterStack.push('low-pass');
+
     return this;
   }
   lowHighPass(minThreshold, maxTreshold) {
@@ -84,6 +96,8 @@ export default class Filter {
         data[i + 2] = 255;
       }
     }
+
+    this.filterStack.push('low-high-pass');
 
     return this;
   }
@@ -177,6 +191,8 @@ export default class Filter {
       }
     }
 
+    this.filterStack.push('floodfill');
+
     return this;
   }
   threshold(threshold) {
@@ -189,6 +205,8 @@ export default class Filter {
       data[i + 1] = color;
       data[i + 2] = color;
     }
+
+    this.fill.push('threshold');
 
     return this;
   }
