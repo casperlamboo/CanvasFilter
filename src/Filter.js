@@ -88,10 +88,12 @@ export default class Filter {
     return this;
   }
   floodfill(x, y, tolerance, { fillColor, edgeColor, backgroundColor } = {}) {
+    tolerance *= 3;
+
     const compairIndex = this.getIndex(x, y);
     const compairPixel = this.getPixelIndex(compairIndex);
     if (!compairPixel) return this; // out of bounds
-    const compairBrightness = (compairPixel.r + compairPixel.g + compairPixel.b) / 3;
+    const compairBrightness = compairPixel.r + compairPixel.g + compairPixel.b;
 
     const stack = [compairIndex];
     const done = { [compairIndex]: true };
@@ -104,7 +106,7 @@ export default class Filter {
 
       const pixel = this.getPixelIndex(index);
       if (!pixel) continue;
-      const brightness = (pixel.r + pixel.g + pixel.b) / 3;
+      const brightness = pixel.r + pixel.g + pixel.b;
 
       const pass = Math.abs(compairBrightness - brightness) < tolerance;
 
