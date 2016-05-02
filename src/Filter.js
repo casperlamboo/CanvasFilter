@@ -1,4 +1,3 @@
-/* */
 export default class Filter {
   constructor(canvas = document.createElement('canvas')) {
     this.filterStack = [];
